@@ -11,7 +11,15 @@ signUpForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(signUpForm);
     console.log({ email: data.get('email'), password: data.get('password') });
-    //const user = await signupUser(data.get('email'), data.get('password'));
+    const user = await signupUser(data.get('email'), data.get('password'));
+    if (user) {
+        location.replace('./other-page/index.html');
+    }
+});
+
+signInForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(signUpForm);
 
 });
 // Wire up sign in and sign up forms to supabase
